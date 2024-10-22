@@ -33,18 +33,13 @@
     <title>Todo App</title>
 </head>
 <body>
-    <!-- Greeting Section -->
     <h1><%= greeting %>, <%= name %>!</h1>
     <h2>Your destination is: <%= destination %></h2>
-
-    <!-- Form to Add New Task -->
     <h3>Todo List</h3>
     <form action="/add-task" method="POST">
         <input type="text" name="task" placeholder="Enter a new task" required />
         <button type="submit">Add Task</button>
     </form>
-
-    <!-- Display List of Tasks -->
     <ul>
         <% tasks.forEach((task, index) => { %>
             <li>
