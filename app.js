@@ -121,7 +121,7 @@ let products = [
     { name: 'qwerty', price: 30 },
 ];
 app.get("/", (req, res) => {
-    let name = "Sam";
+    let name = "Sean";
     let place = "Jakhu";
     let currentHour = new Date().getHours();
     let greeting;
@@ -174,6 +174,21 @@ app.get("/products", (req, res) => {
         product.name.toLowerCase().includes(searchQuery.toLowerCase())
     );
     res.render("products", { products: filteredProducts });
+});
+const users = {
+    sam: { age: 25, hobby: 'Hiking' },
+    jake: { age: 30, hobby: 'Reading' },
+    emma: { age: 22, hobby: 'Painting' },
+};
+app.get("/profile/:username", (req, res) => {
+    const username = req.params.username.toLowerCase(); // Get username from the URL
+    const user = users[username]; // Fetch user data based on username
+    
+    if (user) {
+        res.render("profile", { username, age: user.age, hobby: user.hobby });
+    } else {
+        res.status(404).send("User not found");
+    }
 });
 app.listen(PORT, (err) => {
     if (err) console.log(err);

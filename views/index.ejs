@@ -1,62 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Hello World!</h1>
-    <h2><%= name%></h2>
-    <h3><%= destination%></h3>
-</body>
-</html> -->
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Greeting Page</title>
-</head>
-<body>
-    <h1><%= greeting %>, <%= name %>!</h1>
-    <h2>Your destination is: <%= destination %></h2>
-</body>
-</html> -->
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo App</title>
-</head>
-<body>
-    <h1><%= greeting %>, <%= name %>!</h1>
-    <h2>Your destination is: <%= destination %></h2>
-    <h3>Todo List</h3>
-    <form action="/add-task" method="POST">
-        <input type="text" name="task" placeholder="Enter a new task" required />
-        <button type="submit">Add Task</button>
-    </form>
-    <ul>
-        <% tasks.forEach((task, index) => { %>
-            <li>
-                <form action="/edit-task/<%= index %>" method="POST">
-                    <input type="text" name="updatedTask" value="<%= task %>" />
-                    <button type="submit">Edit</button>
-                </form>
-
-                <form action="/delete-task/<%= index %>" method="POST" style="display: inline;">
-                    <button type="submit">Delete</button>
-                </form>
-            </li>
-        <% }) %>
-    </ul>
-</body>
-</html> -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,13 +7,15 @@
 </head>
 <body>
     <%- include('partials/header') %>
-    <h1><%= greeting %>, <%= name %>!</h1>
-    <h2>Your destination is: <%= destination %></h2>
+    <h1>Welcome <%= name %>, <%= greeting %>!</h1>
+    <!-- Form to Add New Task -->
     <h3>Todo List</h3>
     <form action="/add-task" method="POST">
         <input type="text" name="task" placeholder="Enter a new task" required />
         <button type="submit">Add Task</button>
     </form>
+
+    <!-- Display List of Tasks -->
     <ul>
         <% tasks.forEach((task, index) => { %>
             <li>
@@ -80,6 +23,7 @@
                     <input type="text" name="updatedTask" value="<%= task %>" />
                     <button type="submit">Edit</button>
                 </form>
+
                 <form action="/delete-task/<%= index %>" method="POST" style="display: inline;">
                     <button type="submit">Delete</button>
                 </form>
